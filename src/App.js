@@ -1,20 +1,21 @@
 import React from 'react';
 import './App.css';
-import {observer} from 'mobx-react';
-import {decorate, observable, autorun, computed} from 'mobx';
+import { observer } from 'mobx-react';
+import { decorate, observable, autorun, computed } from 'mobx';
 import axios from 'axios'
 import FileList from "./FileList";
 
-import Layout from 'antd/lib/layout';
-import TreeSelect from 'antd/lib/tree-select';
-import Button from 'antd/lib/button';
-import Row from 'antd/lib/row';
-import Col from 'antd/lib/col';
-import AutoComplete from 'antd/lib/auto-complete';
-import Spin from 'antd/lib/spin';
+import { Layout, TreeSelect, Button, Row, Col, AutoComplete, Spin } from 'antd';
+// import Layout from 'antd/lib/layout';
+// import TreeSelect from 'antd/lib/tree-select';
+// import Button from 'antd/lib/button';
+// import Row from 'antd/lib/row';
+// import Col from 'antd/lib/col';
+// import AutoComplete from 'antd/lib/auto-complete';
+// import Spin from 'antd/lib/spin';
 import Constant from './constant.js';
 
-const {Header, Footer} = Layout;
+const { Header, Footer } = Layout;
 
 //128.1.224.193
 
@@ -63,7 +64,7 @@ class TreeDataModel {
     });
   }
 
-  compareFunc = (item1, item2) => {
+  compareFunc(item1, item2) {
     return -1;
   };
 
@@ -228,8 +229,8 @@ class App extends React.Component {
         <Spin spinning={treeDataModel.loading}>
           <Layout>
             <Header>Header</Header>
-            <Layout style={{margin: '10px'}}>
-              <div style={{textAlign: 'left'}}>
+            <Layout style={{ margin: '10px' }}>
+              <div style={{ textAlign: 'left' }}>
                 <Row>
                   <Col xs={24} sm={20} md={16} lg={16}>
                     <div className="input_keywords">
@@ -238,13 +239,13 @@ class App extends React.Component {
                   </Col>
                 </Row>
               </div>
-              <div style={{marginBottom: '10px'}}>
+              <div style={{ marginBottom: '10px' }}>
                 <Row gutter={2}>
                   <Col className="gutter-row" xs={20} sm={16} md={14} lg={14}>
                     <TreeSelect
                       showSearch
-                      style={{width: '100%'}}
-                      dropdownStyle={{maxHeight: 400, overflow: 'auto'}}
+                      style={{ width: '100%' }}
+                      dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
                       treeData={treeDataModel.treeData}
                       placeholder="Please select"
                       onChange={this.onChange}
@@ -255,35 +256,35 @@ class App extends React.Component {
                   </Col>
                   <Col className="gutter-row" xs={4} sm={4} md={2} xl={2}>
                     <div className="button_return">
-                      <Button onClick={this.clickButton} style={{width: '100%', padding: 0}}>返回</Button>
+                      <Button onClick={this.clickButton} style={{ width: '100%', padding: 0 }}>返回</Button>
                     </div>
                   </Col>
                 </Row>
               </div>
-              <div style={{marginBottom: '10px'}}>
+              <div style={{ marginBottom: '10px' }}>
                 <Row>
                   <Col xs={24} sm={20} md={16} lg={16}>
                     <div className="input_keywords">
                       {/*<Input placeholder="文件名关键词" allowClear*/}
                       {/*onChange={this.onInputChange}/>*/}
                       <AutoComplete
-                        style={{width: '100%'}}
+                        style={{ width: '100%' }}
                         dataSource={treeDataModel.autoCompleteData}
                         placeholder="在当前目录查找文件"
                         onChange={this.onAutoCompleteChange}
                         allowClear
                         value={treeDataModel.autoCompleteKw}
-                        // onSelect={this.onAcSelect}
+                      // onSelect={this.onAcSelect}
                       />
                     </div>
                   </Col>
                 </Row>
               </div>
-              <div style={{marginBottom: '10px'}}>
+              <div style={{ marginBottom: '10px' }}>
                 <Row>
                   <Col xs={24} sm={20} md={16} lg={16}>
                     <div className="file-list">
-                      <FileList treeDataModel={treeDataModel}/>
+                      <FileList treeDataModel={treeDataModel} />
                     </div>
                   </Col>
                 </Row>

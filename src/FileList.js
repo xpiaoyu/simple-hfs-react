@@ -1,12 +1,13 @@
 import React from 'react';
-import {observer} from "mobx-react/index";
+import { observer } from "mobx-react/index";
 
-import List from 'antd/lib/list';
-import Tooltip from 'antd/lib/tooltip';
-import Button from 'antd/lib/button';
-import Upload from 'antd/lib/upload';
-import message from 'antd/lib/message';
-import Icon from 'antd/lib/icon';
+import { List, Tooltip, Button, Upload, message, Icon } from 'antd';
+// import List from 'antd/lib/list';
+// import Tooltip from 'antd/lib/tooltip';
+// import Button from 'antd/lib/button';
+// import Upload from 'antd/lib/upload';
+// import message from 'antd/lib/message';
+// import Icon from 'antd/lib/icon';
 
 import Constant from './constant.js';
 
@@ -65,20 +66,20 @@ class FileList extends React.Component {
 
   render() {
     return (
-      <>
-        <div style={{marginBottom: '10px'}}>
+      <div>
+        <div style={{ marginBottom: '10px' }}>
           <Upload
             name="file"
             action={Constant.APP_URL + "/upload?path=" + this.treeDataModel.selectedValue}
             onChange={(info) => this.onChange(info)}
           >
             <Button>
-              <Icon type=" upload"/> Click to Upload
+              <Icon type=" upload" /> Click to Upload
             </Button>
           </Upload>
         </div>
         <List
-          style={{textAlign: 'left', marginBottom: '10px'}}
+          style={{ textAlign: 'left', marginBottom: '10px' }}
           size=" small"
           header={<div>文件夹</div>}
           bordered
@@ -89,16 +90,16 @@ class FileList extends React.Component {
                 <List.Item>
                   <Button onClick={() => {
                     this.clickDirCard(item.Name)
-                  }} type="default" shape="circle" icon="folder" size="default"/>
+                  }} type="default" shape="circle" icon="folder" size="default" />
                   <div className=" file-list-name">{item.Name}</div>
                 </List.Item>
               );
             }
-            return (<></>);
+            return (<div></div>);
           }}
         />
         <List
-          style={{textAlign: 'left', marginBottom: '10px'}}
+          style={{ textAlign: 'left', marginBottom: '10px' }}
           size=" small"
           header={<div>文件</div>}
           bordered
@@ -107,14 +108,14 @@ class FileList extends React.Component {
             if (item.IsDir === false) {
               return (<List.Item>
                 <Button onClick={() => this.onClickDownload(item.Name)} type="default"
-                        shape="circle" icon="download" size="default"/>
+                  shape="circle" icon="download" size="default" />
                 <Tooltip title={item.Name}>
                   <div className=" file-list-name">{item.Name}</div>
                 </Tooltip>
                 <div className=" file-list-size">{this.getFileSize(item.Size)}</div>
               </List.Item>)
             }
-            return (<></>);
+            return (<div></div>);
           }}
         />
         {/*<List*/}
@@ -143,7 +144,7 @@ class FileList extends React.Component {
         {/*);*/}
         {/*}}*/}
         {/*/>*/}
-      </>
+      </div>
     );
   }
 }
