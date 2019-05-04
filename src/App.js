@@ -226,21 +226,25 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Spin spinning={treeDataModel.loading}>
+        {/* <Spin spinning={treeDataModel.loading}> */}
+        <Spin spinning={false}>
           <Layout>
             <Header>Header</Header>
             <Layout style={{ margin: '10px' }}>
               <div style={{ textAlign: 'left' }}>
                 <Row>
+                  <Col xs={0} sm={2} md={4} lg={4} />
                   <Col xs={24} sm={20} md={16} lg={16}>
                     <div className="input_keywords">
                       <p>当前路径：{treeDataModel.selectedValue}</p>
                     </div>
                   </Col>
+                  <Col xs={0} sm={2} md={4} lg={4} />
                 </Row>
               </div>
               <div style={{ marginBottom: '10px' }}>
                 <Row gutter={2}>
+                  <Col xs={0} sm={2} md={4} lg={4} />
                   <Col className="gutter-row" xs={20} sm={16} md={14} lg={14}>
                     <TreeSelect
                       showSearch
@@ -259,10 +263,12 @@ class App extends React.Component {
                       <Button onClick={this.clickButton} style={{ width: '100%', padding: 0 }}>返回</Button>
                     </div>
                   </Col>
+                  <Col xs={0} sm={2} md={4} lg={4} />
                 </Row>
               </div>
               <div style={{ marginBottom: '10px' }}>
                 <Row>
+                  <Col xs={0} sm={2} md={4} lg={4} />
                   <Col xs={24} sm={20} md={16} lg={16}>
                     <div className="input_keywords">
                       {/*<Input placeholder="文件名关键词" allowClear*/}
@@ -278,15 +284,18 @@ class App extends React.Component {
                       />
                     </div>
                   </Col>
+                  <Col xs={0} sm={2} md={4} lg={4} />
                 </Row>
               </div>
               <div style={{ marginBottom: '10px' }}>
                 <Row>
+                  <Col xs={0} sm={2} md={4} lg={4} />
                   <Col xs={24} sm={20} md={16} lg={16}>
                     <div className="file-list">
                       <FileList treeDataModel={treeDataModel} />
                     </div>
                   </Col>
+                  <Col xs={0} sm={2} md={4} lg={4} />
                 </Row>
               </div>
             </Layout>
